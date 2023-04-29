@@ -33,9 +33,10 @@ console.log(btnq);
 let box = document. getElementById('box'),
     btns = document.getElementsByTagName('button'),
     circles = document.getElementsByClassName('circle'),
-    hearts = document.querySelectorAll('heart'),
-    oneHeart = document.querySelector('.heart');
-
+    wrapper = document.querySelector('.wrapper'),
+    hearts = wrapper.querySelectorAll('.heart'),
+    oneHeart = wrapper.querySelector('.heart');
+   
     box.style.backgroundColor = 'blue';
     box.style.width = '500px';
 
@@ -52,6 +53,43 @@ let box = document. getElementById('box'),
     //circles[0].style.backgroundColor = "purple"; 
 
 
+    /* Лучше использовать перебирающие методы
+
     for (let i = 0; i < 2; i++) { // Изменение элементов с помощью циклов
         circles[i].style.backgroundColor = "purple";
     }
+
+    */
+
+    hearts.forEach(item =>{
+        item.style.backgroundColor = "purple";
+    });
+
+    
+    let div = document.createElement('div');
+
+    //let text = document.createTextNode('Hello');
+
+    div.classList.add('black');
+
+    wrapper.append(div);
+
+    //document.querySelector('.wrapper').append(div);
+    //wrapper.prepend(div);
+
+   // hearts[0].before(div);
+   //hearts[0].after(div);
+
+   //wrapper.insertBefore(div, hearts[0]);
+
+   //circles[0].remove();
+   //wrapper.removeChild(hearts[1]);
+
+    hearts[0].replaceWith(circles[0]);
+   //wrapper.replaceChild(circles[0], hearts[0]);
+
+  //  div.innerHTML = '<h1>Hello</h1>';
+
+   //div.textContent = 'Hello';
+
+   div.insertAdjacentHTML('beforeend', '<h2>Hi</h2>'); 
